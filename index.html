@@ -123,7 +123,22 @@ body.pz *{animation-play-state:paused!important}
 .wsec s{position:absolute;top:60%;width:.55rem;height:1rem;opacity:0;animation:cf 3.4s ease-out forwards}
 @keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),-70vh) rotate(var(--r))}}
 @media(prefers-reduced-motion:reduce){.cdl i{animation:none}.phbg{animation:none}}
-@media(prefers-reduced-motion:reduce){.scene.in,.k.z,.slide.on img,.phv,.phbg{animation:none!important}}</style></head>
+@media(prefers-reduced-motion:reduce){.scene.in,.k.z,.slide.on img,.phv,.phbg{animation:none!important}}
+.spl-s>*:not(.splbg){position:relative;z-index:1}
+.scene.spl-s>.splbg{position:absolute!important;z-index:0!important;width:108%;height:108%;left:-4%;top:-4%;inset:auto;background-size:cover;background-position:center 22%;filter:brightness(.42) saturate(1.05);opacity:0;transition:opacity 3.2s;animation:kz 24s ease-out forwards;overflow:hidden}.scene.spl-s>.splbg.on{opacity:1}
+/* start-screen background video */
+.splbg>video.sv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
+.spl-s::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(90% 70% at 50% 45%,#0000,#05060dcc 85%),linear-gradient(#05060d99,#0000 30%,#0000 60%,#05060dee)}
+.splin{display:flex;flex-direction:column;align-items:center}
+.splin>*{opacity:0;transform:translateY(16px);animation:spi 2s ease forwards}
+.splin small{font:400 .68rem Inter,sans-serif;letter-spacing:.5em;color:var(--gold);animation-delay:.3s}
+.splin h1{font:italic 300 clamp(3.4rem,17vw,7rem)/1 'Cormorant Garamond',serif;margin:.5rem 0 .3rem;background:linear-gradient(#f4efe6 30%,#d9b878);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 30px #000);animation-delay:.9s}
+.splin .spd{font:400 .75rem Inter,sans-serif;letter-spacing:.4em;color:#f4efe9cc;animation-delay:1.5s}
+.splin em{font:italic 300 1.25rem 'Cormorant Garamond',serif;color:var(--rose);margin-top:.9rem;animation-delay:2.1s}
+@keyframes spi{to{opacity:1;transform:none}}
+.spl-s .b.on{animation:bp 2.6s ease-in-out infinite;background:#05060d99}
+@keyframes bp{50%{box-shadow:0 0 34px #d9b87877,inset 0 0 14px #d9b87822}}
+</style></head>
 <body>
 <div id="app"><div id="bgl"></div><div id="bk"></div><canvas id="fx"></canvas><div class="leak"></div><div id="stage"></div><div id="dim"></div><div class="grain"></div><div id="page"></div><div id="lbx"><img alt=""></div><div class="lb" id="lbT"></div><div class="lb" id="lbB"></div><button id="snd" aria-label="Toggle music">♪</button><button id="skp">Pause · Chapters</button><div id="pz"><div class="pzt" id="pzt"></div><div class="pzb"><button id="pzr" aria-label="Resume">▶</button><div class="pzm"><button title="I · Distance">I</button><button title="II · Memories">II</button><button title="III · Voice">III</button><button title="IV · Wish">IV</button><button title="V · Celebration">V</button><button title="Her page">♡</button></div></div></div></div>
 <script src="config.js"></script>
@@ -218,7 +233,7 @@ document.getElementById('again').onclick=()=>{au=false;P.classList.remove('on');
 const chap=(n,t)=>scene('',async s=>{await line(s,n,{c:'sm',keep:1,ms:350});await line(s,t,{c:'ttl',ms:1300})});
 const SEG=[
 async()=>{
- await scene('',async s=>{fx.tv=.7;await sleep(1000);await line(s,'Hey, Miss Khan...',{ms:2000});await line(s,"I know you're far away.",{ms:2200});document.body.classList.add('bright');bk(.35);await line(s,"But distance doesn't make anyone less important.",{ms:3200})});
+ await scene('',async s=>{fx.tv=.9;bk(.3);await sleep(900);await line(s,'Hey, Miss Khan...',{ms:2000});await line(s,"I know you're far away.",{ms:2200});document.body.classList.add('bright');bk(.35);await line(s,"But distance doesn't make anyone less important.",{ms:3200})});
  await chap('CHAPTER I','The Distance');
  await scene('',async s=>{pts({on:1,tg:.95,tl:0});fx.tv=.8;bk(.25);await sleep(600);const p=s.appendChild($('div'));p.style.cssText='position:absolute;top:22%;left:0;right:0;display:flex;flex-direction:column;align-items:center;padding:0 1.4rem';
   const L=['Different places.','Same friendship.','Still connected.'];for(let i=0;i<3;i++){pts({tl:(i+1)/3});await line(s,L[i],{into:p,ms:i==2?2800:1900})}
@@ -322,6 +337,33 @@ function jumpTo(i){if(VOICE.el){VOICE.el.pause();VOICE.el=null}Mu.duck(false);TM
 pz.querySelectorAll('.pzm button').forEach((b,i)=>b.onclick=()=>jumpTo(i));document.getElementById('pzr').onclick=resumeUI;
 addEventListener('pointerdown',e=>{if(!started||document.body.classList.contains('pg'))return;if(e.target.closest('button,#lbx'))return;PZ?resumeUI():pauseUI()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&started&&!document.body.classList.contains('pg'))pauseUI()});
-/* ---------- start ---------- */
-(async()=>{const s=$('div','scene in');stage.appendChild(s);fx.tv=.15;const p=$('p','ln sm','From Nadab, for Miss Khan');s.appendChild(p);await sleep(300);p.classList.add('on');const b=btn(s,'Tap to begin');await sleep(900);b.classList.add('on');const hint=$('p','ln sm','Tap the screen anytime to pause');hint.style.cssText='margin-top:1.4rem;letter-spacing:.25em;opacity:.7';s.appendChild(hint);await sleep(300);hint.classList.add('on');b.onclick=async()=>{b.onclick=null;started=true;try{Mu.start()}catch(e){}try{if(C.voice){const pa=VOICE.pre=new Audio(C.voice);pa.preload='auto';pa.muted=true;pa.play().then(()=>{pa.pause();pa.currentTime=0;pa.muted=false}).catch(()=>{pa.muted=false})}}catch(e){}preload();sb.classList.add('on');document.body.classList.add('cine');s.classList.remove('in');await sleep(1400);s.remove();const sk=document.getElementById('skp');sk.onclick=pauseUI;setTimeout(()=>sk.classList.add('on'),20000/SP);film(location.hash=='#page'?SEG.length:0)}})();
+/* ---------- start (splash with background video) ---------- */
+(async()=>{
+ const s=$('div','scene in');stage.appendChild(s);fx.tv=.15;s.classList.add('spl-s');
+ const sbg=$('div','splbg');sbg.style.backgroundImage=`url(${C.hero})`;
+ /* background video: config.js -> startVideo:'video/start.mp4' (falls back to the hero photo if missing) */
+ let sv=null;
+ if(C.startVideo){
+  sv=$('video','sv');sv.src=C.startVideo;sv.poster=C.hero;
+  sv.muted=true;sv.defaultMuted=true;sv.loop=true;sv.autoplay=true;sv.playsInline=true;
+  sv.setAttribute('muted','');sv.setAttribute('playsinline','');sv.setAttribute('webkit-playsinline','');sv.preload='auto';
+  sv.onerror=()=>{sv.remove();sv=null};
+  sbg.appendChild(sv);
+ }
+ s.prepend(sbg);fx.tv=.55;
+ const p=$('div','splin',`<small>A BIRTHDAY FILM</small><h1>${T(C.name)}</h1><span class="spd">${dateStr}</span><em>${T(C.sender)}</em>`);s.appendChild(p);
+ if(sv)sv.play().catch(()=>{});
+ await sleep(120);sbg.classList.add('on');await sleep(2200);
+ const b=btn(s,'Tap to begin');await sleep(900);b.classList.add('on');
+ const hint=$('p','ln sm','Turn sound on');hint.style.cssText='margin-top:1.4rem;letter-spacing:.25em;opacity:.7';s.appendChild(hint);await sleep(300);hint.classList.add('on');
+ b.onclick=async()=>{b.onclick=null;started=true;
+  try{Mu.start()}catch(e){}
+  try{if(C.voice){const pa=VOICE.pre=new Audio(C.voice);pa.preload='auto';pa.muted=true;pa.play().then(()=>{pa.pause();pa.currentTime=0;pa.muted=false}).catch(()=>{pa.muted=false})}}catch(e){}
+  preload();sb.classList.add('on');document.body.classList.add('cine');s.classList.remove('in');
+  await sleep(1400);
+  if(sv){try{sv.pause()}catch(e){}}
+  s.remove();
+  const sk=document.getElementById('skp');sk.onclick=pauseUI;setTimeout(()=>sk.classList.add('on'),20000/SP);
+  film(location.hash=='#page'?SEG.length:0)}
+})();
 </script></body></html>
