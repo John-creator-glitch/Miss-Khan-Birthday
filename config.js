@@ -20,10 +20,7 @@ window.CONFIG = {
 
   ifYouWereHere: [
     "We'd probably be arguing about what to eat.",
-    "Someone would definitely be making fun of someone.",
-    "There would be way too many pictures.",
-    "Someone would say “one last photo” approximately 17 times.",
-    "And somehow we'd still end up laughing about something completely random."
+    "Someone would say “one last photo” approximately 17 times."
   ],
 
   photos: [                                
@@ -36,25 +33,26 @@ window.CONFIG = {
     { src: "photos/memory-04.jpg", caption: "Roses, lights, and the happiest smile in the room." },
     { src: "photos/memory-07.jpg", caption: "A queen on her staircase." }
   ],
+  filmCount: 6,                            // how many photos play in the film (the album shows all)
+  voice: "nadab.mp3",               // your voice note
+  voiceCaptions: [],                      // optional subtitles: [[0,"first words"],[6000,"next line"]] (ms from start)
   albumExtra: ["photos/memory-10.jpg"],     // extra photos only in the final album
 
   // the imagined birthday (AI-made clips). Shown as a dream, clearly labelled.
   dream: {
-    intro: ["Okay, one more thing.", "If I could throw you the birthday you deserve...", "it would look a little like this."],
+    intro: ["If I could throw you the birthday you deserve...", "it would look a little like this."],
     tag: "IMAGINED  ·  NOT REAL, JUST FOR YOU",
     clips: [
       { src: "video/dream-special.mp4", ms: 19000, caps: [[800, "Candlelight."], [4200, "Flowers everywhere."], [7600, "And you, in the middle of it."], [10500, "A staircase fit for a queen."], [15000, "Smiling, like you always do."]] }
     ],
-    after: ["But the real one is better.", "Because it has you in it."]
+    after: ["But the real one is better."]
   },
   cakeVideo: "video/cake.mp4",
 
   miss: [
     "Your random messages.",
     "Your ridiculous jokes.",
-    "The conversations that were supposed to last five minutes.",
-    "The way you somehow turn normal moments into memories.",
-    "Your presence."
+    "The conversations that were supposed to last five minutes."
   ],
   missFinal: "Honestly... I just miss YOU.",
 
@@ -66,12 +64,9 @@ window.CONFIG = {
   ],
 
   thanks: [
-    "Before the letter, there's something I never said properly.",
     "Thank you.",
     "For all the laughter that never needed a reason.",
-    "For the exam camp days that felt like fun, not work.",
-    "For being the kind of friend who shows up.",
-    "Again... and again... and again."
+    "For being the kind of friend who shows up."
   ],
 
   letter: [
@@ -93,7 +88,7 @@ window.CONFIG = {
 
   celebrationSub: "From me, wherever I am. Nadab.",
   final: {
-    lines: ["So here's to you.", "To another year.", "More laughter.", "More memories.", "More ridiculous conversations.", "And hopefully...", "a lot less distance."],
+    lines: ["So here's to you.", "To another year.", "And hopefully... a lot less distance."],
     title: "Happy Birthday, {name} ❤️",
     sub: "I miss you. I appreciate you. And I'm really lucky to have you as my friend."
   },
@@ -108,6 +103,6 @@ window.CONFIG = {
     "May success follow you, and peace stay with you.",
     "Shine the way you always do. The world is better for it."
   ],
-  credits: [["Starring","Miss Khan"],["Directed by","Nadab"],["Produced by","Every memory we made"],["Special thanks","Fries, exam camps & random conversations"],["Filmed on location","Wherever friendship lives"]],
-  ending: ["Made especially for you.", "Because being far away doesn't mean being forgotten.", "See you soon."]
+  credits: [["Starring","Miss Khan"],["Directed by","Nadab"]],
+  ending: ["See you soon."]
 };
