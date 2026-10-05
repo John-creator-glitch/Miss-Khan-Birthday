@@ -8,6 +8,7 @@ window.CONFIG = {
   colors: { bg: "#05060d", navy: "#0b1226", ink: "#f4efe6", gold: "#d9b878", rose: "#c98a96" },
   hero: "photos/hero.jpg",
   bgVideo: "",                             // optional: "video/bg.mp4" (muted loop). Empty = her photos play as a slow cinematic backdrop
+  
 
   docu: "Known for laughing at the wrong moments, remembering the little things, and making ordinary days feel like memories. Currently: far away. Never forgotten.",
   narration: [
@@ -35,7 +36,7 @@ window.CONFIG = {
   ],
   filmCount: 6,                            // how many photos play in the film (the album shows all)
   voice: "nadab.mp3",               // your voice note
-  voiceCaptions: [],                      // optional subtitles: [[0,"first words"],[6000,"next line"]] (ms from start)
+  voiceCaptions: [[1000, "Assalam-o-Alaikum, Miss Khan!"], [3400, "Kaise hain aap?"], [4800, "Umeed hai bilkul khairiyat se hongi"], [7100, "aur hamesha ki tarah khush hongi."], [9600, "Aaj ka din aapke liye bohat special hai,"], [12400, "kyun ke aaj aapka birthday hai."], [14900, "Dil se aapko bohat bohat Happy Birthday! 🎂❤️"], [18900, "Maine socha..."], [20100, "is baar sirf ek simple birthday wish na ki jaye,"], [22700, "balkay aapke liye kuch special banaya jaye."], [25100, "Isi liye ye chhoti si website"], [26900, "specially aapke liye banayi hai."], [29500, "Toh isay aakhir tak zaroor enjoy kijiye."], [32200, "Umeed hai"], [33100, "ye aapke chehre par ek pyari si smile zaroor layegi."], [37400, "Dua hai"], [38300, "aapki zindagi hamesha khushiyon se bhari rahe."], [41800, "Once again,"], [43100, "Happy Birthday, Miss Khan!"], [45400, "Stay happy and keep smiling! ❤️✨"]],                      // optional subtitles: [[0,"first words"],[6000,"next line"]] (ms from start)
   albumExtra: ["photos/memory-10.jpg"],     // extra photos only in the final album
 
   // the imagined birthday (AI-made clips). Shown as a dream, clearly labelled.
